@@ -1,6 +1,10 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from django.contrib.auth.models import User
+from .models import *
+from .serializers import PropuestasSerializer
+from rest_framework import generics
+from rest_framework.permissions import IsAdminUser
+from rest_framework import viewsets
 
-@api_view()
-def index(request):
-    return Response({"message": "Hello, world!"})
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = Propuestas.objects.all()
+    serializer_class = PropuestasSerializer
