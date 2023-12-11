@@ -1,7 +1,7 @@
 from rest_framework import serializers 
 from . import models
 
-class PropuestasSerializer(serializers.ModelSerializer):
+class ExperienciaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Propuestas
+        model = models.Experiencia
         fields = "__all__"

@@ -2,11 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-class Propuestas(models.Model):
-    nombre = models.CharField(max_length=25)
-    apellido = models.CharField(max_length=25)
-    edad = models.IntegerField(max_length=25)
-    propuesta = models.CharField(max_length=25)
+class Experiencia(models.Model):
+    trabajo = models.CharField(max_length=50)
+    link = models.CharField(max_length=100)
+    img = models.ImageField()
+    descripcion = models.CharField(max_length=200)
 
     def __str__(self):
-        return (self.nombre)
+        return (self.trabajo)
