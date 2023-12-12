@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from .models import *
-from .serializers import ExperienciaSerializer
+from .serializers import ExperienciaSerializer, ProyectoSerializer, SkillSerializer 
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
 from rest_framework import viewsets
@@ -12,6 +12,16 @@ from rest_framework.decorators import api_view, permission_classes  # Añade est
 class UserViewSet(viewsets.ModelViewSet):
     queryset = Experiencia.objects.all()
     serializer_class = ExperienciaSerializer
+
+class UserViewSet_proyectos(viewsets.ModelViewSet):
+    queryset = Proyecto.objects.all()
+    serializer_class = ProyectoSerializer
+
+class UserViewSet_skills(viewsets.ModelViewSet):
+    queryset = Skills.objects.all()
+    serializer_class = SkillSerializer
+
+
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response

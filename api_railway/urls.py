@@ -10,12 +10,18 @@ router = routers.DefaultRouter()
 router.register(r'experiencia', views.UserViewSet)
 # Si tienes más vistas, las registras aquí
 # router.register(r'otra', views.OtraVistaViewSet)
+router_otra = routers.DefaultRouter()
+router_otra.register(r'proyecto', views.UserViewSet_proyectos)
+
+router_skill = routers.DefaultRouter()
+router_skill.register(r'skills', views.UserViewSet_skills)
+
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('get/', views.get_api),
+    path('api/', include(router_otra.urls)),
+    path('api/', include(router_skill.urls)),
+
     # Otras URL o inclusiones aquí si es necesario
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
 
