@@ -26,7 +26,7 @@ class Proyecto(models.Model):
 class Skills(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=300)
-    img = models.ImageField()
+    img = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return (self.nombre)
