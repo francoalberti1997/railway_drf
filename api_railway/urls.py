@@ -16,12 +16,22 @@ router_otra.register(r'proyecto', views.UserViewSet_proyectos)
 router_skill = routers.DefaultRouter()
 router_skill.register(r'skills', views.UserViewSet_skills)
 
+router_contacto = routers.DefaultRouter()
+router_contacto.register(r'contacto', views.UserViewSet_contacto)
+
 
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/', include(router_otra.urls)),
     path('api/', include(router_skill.urls)),
+    path('api/', include(router_contacto.urls)),
+
 
     # Otras URL o inclusiones aquí si es necesario
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+#python manage.py migrate
+#python manage.py makemigrations
+#python manage.py runserver
 

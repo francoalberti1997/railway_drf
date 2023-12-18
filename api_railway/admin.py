@@ -7,3 +7,6 @@ admin.site.register(Experiencia)
 admin.site.register(Proyecto)
 
 admin.site.register(Skills)
+
+admin.site.register(Contacto)
+
