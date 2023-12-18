@@ -207,13 +207,16 @@ class UserViewSet_contacto(viewsets.ModelViewSet):
     queryset = Contacto.objects.all()
     serializer_class = ContactoSerializer
 
-    def list(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
+        
+    def list(self,request, *args, **kwargs):
         if request.user.is_staff:  
             queryset = self.filter_queryset(self.get_queryset())
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)                
         else:
-            return Response({"mensaje": "No tiene permisos"}, status=status.HTTP_403_FORBIDDEN)
+            return Response({"mensaje": "No tiene permisos"}, status=status.HTTP_403_FORBIDDEN) 
 
     def retrieve(self, request, *args, **kwargs):
         if request.user.is_staff:  
@@ -245,16 +248,38 @@ class UserViewSet_contacto(viewsets.ModelViewSet):
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_api(request, format=None):
-    content = {
-        'user': str(request.user),  # `django.contrib.auth.User` instance.
-        'auth': str(request.auth),  # None
-    }
-    superusers = User.objects.filter(is_superuser=True)
-    for user in superusers:
-        print("*")
-        print(user.username)
-        print("*")
-    return Response(content)
+
+
+
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseForbidden
+from api_railway.forms import AdminLoginForm
+
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AdminLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user and user.is_staff:
+                login(request, user)
+                contactos = Contacto.objects.all()
+
+                # Redirige o renderiza la página con los datos permitidos para el admin
+                return render(request, 'admin_data.html', {'user': user, "contactos":contactos})
+            else:
+                return HttpResponseForbidden("No tiene permisos de administrador")
+    else:
+        form = AdminLoginForm()
+
+    return render(request, 'login.html', {'form': form})
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def logout_view(request):
+    logout(request)
+    return redirect('login_view')

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../template/index_login.css'}">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Hola {{user}}</h1>
+
+    {% if contactos %}
+    <ul>
+        {% for contacto in contactos %}
+            <li>
+                {{contacto.nombre}}
+            </li>
+            <li>
+                {{contacto.mail}}
+            </li>
+            <li>
+                {{contacto.celular}}
+            </li>
+            <li>
+                {{contacto.mensaje}}
+            </li>
+
+            <br>
+            <br>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No hay contactos disponibles.</p>
+    {% endif %}
+
+
+    <a href="{% url 'logout_view' %}">Cerrar sesión</a>
+
+</body>
+</html>
