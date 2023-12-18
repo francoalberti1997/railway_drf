@@ -27,12 +27,6 @@ class UserViewSet(viewsets.ModelViewSet):
     #     serializer = self.get_serializer(instance)
     #     return Response(serializer.data)
 
-    def list(self, request, *args, **kwargs):
-       
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-    
     def create(self, request, *args, **kwargs):
         if request.user.is_staff:  # Verifica si el usuario no es un administrador
             return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
@@ -87,12 +81,6 @@ class UserViewSet_proyectos(viewsets.ModelViewSet):
     #     instance = self.get_object()
     #     serializer = self.get_serializer(instance)
     #     return Response(serializer.data)
-
-    def list(self, request, *args, **kwargs):
-       
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
     
     def create(self, request, *args, **kwargs):
         if request.user.is_staff:  # Verifica si el usuario no es un administrador
@@ -147,12 +135,7 @@ class UserViewSet_skills(viewsets.ModelViewSet):
     #     serializer = self.get_serializer(instance)
     #     return Response(serializer.data)
 
-    def list(self, request, *args, **kwargs):
-       
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-    
+ 
     def create(self, request, *args, **kwargs):
         if request.user.is_staff:  # Verifica si el usuario no es un administrador
             return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
