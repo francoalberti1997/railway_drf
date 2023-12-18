@@ -139,11 +139,6 @@ class UserViewSet_skills(viewsets.ModelViewSet):
     queryset = Skills.objects.all()
     serializer_class = SkillSerializer
 
-    def get_permissions(self):
-        if self.action == 'list' and not self.request.user.is_authenticated:
-            self.permission_classes = [permissions.AllowAny]
-        return super().get_permissions()
-    
     # def retrieve(self, request, *args, **kwargs):
     #     # Tu lógica personalizada aquí para obtener un único objeto
 
@@ -207,8 +202,8 @@ class UserViewSet_contacto(viewsets.ModelViewSet):
     queryset = Contacto.objects.all()
     serializer_class = ContactoSerializer
 
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
+    # def create(self, request, *args, **kwargs):
+    #     return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
         
     def list(self,request, *args, **kwargs):
         if request.user.is_staff:  
