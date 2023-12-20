@@ -227,7 +227,7 @@ from django.http import HttpResponseForbidden, JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
 import json
-import requests
+# import requests
 
 @csrf_exempt
 def login_view(request):
