@@ -174,14 +174,14 @@ class UserViewSet_contacto(viewsets.ModelViewSet):
     # def create(self, request, *args, **kwargs):
     #     return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
         
-    def list(self,request, *args, **kwargs):
-        print(request.user)
+    # def list(self,request, *args, **kwargs):
+    #     print(request.user)
             
-        if request.user.is_staff:  
-            print(request.user)
-            return super().list(request, *args, **kwargs)               
-        else:
-            return Response({"mensaje": "No tiene permisos"}, status=status.HTTP_403_FORBIDDEN) 
+    #     if request.user.is_staff:  
+    #         print(request.user)
+    #         return super().list(request, *args, **kwargs)               
+    #     else:
+    #         return Response({"mensaje": "No tiene permisos"}, status=status.HTTP_403_FORBIDDEN) 
 
     def retrieve(self, request, *args, **kwargs):
         if request.user.is_staff:  
