@@ -57,14 +57,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'railway_main.urls'
 
-# direc = os.path.join(BASE_DIR) +  '/staticfiles/template/'
+direc = os.path.join(BASE_DIR) +  '/staticfiles/template/'
 
-# direc = direc.replace("/", "\\")
+direc = direc.replace("/", "\\")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [direc],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
