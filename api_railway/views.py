@@ -201,14 +201,14 @@ class UserViewSet_contacto(viewsets.ModelViewSet):
                 status=status.HTTP_403_FORBIDDEN
             )
 
-    def destroy(self, request, *args, **kwargs):
-        if request.user.is_staff:  
-            return super().destroy(request, *args, **kwargs)  
-        else:
-            return Response(
-                {"mensaje": "No tienes permiso para realizar esta acción"},
-                status=status.HTTP_403_FORBIDDEN
-            )
+    # def destroy(self, request, *args, **kwargs):
+    #     if request.user.is_staff:  
+    #         return super().destroy(request, *args, **kwargs)  
+    #     else:
+    #         return Response(
+    #             {"mensaje": "No tienes permiso para realizar esta acción"},
+    #             status=status.HTTP_403_FORBIDDEN
+    #         )
 
 from rest_framework.response import Response
 
