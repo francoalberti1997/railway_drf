@@ -19,150 +19,150 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = ExperienciaSerializer
 
     
-    # def retrieve(self, request, *args, **kwargs):
-    #     # Tu lógica personalizada aquí para obtener un único objeto
-    #     instance = self.get_object()
-    #     serializer = self.get_serializer(instance)
-    #     return Response(serializer.data)
+    def retrieve(self, request, *args, **kwargs):
+        # Tu lógica personalizada aquí para obtener un único objeto
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
-    # def create(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def create(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
     
-    # def put(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def delete(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def put(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def delete(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
-    # def destroy(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def retrieve(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def destroy(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def retrieve(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
 class UserViewSet_proyectos(viewsets.ModelViewSet):
     queryset = Proyecto.objects.all()
     serializer_class = ProyectoSerializer
 
-    # def retrieve(self, request, *args, **kwargs):
-    #     instance = self.get_object()
-    #     serializer = self.get_serializer(instance)
-    #     return Response(serializer.data)
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
     
-    # def create(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def put(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def delete(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def create(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def put(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def delete(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
     
-    # def destroy(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def retrieve(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    # )
+    def destroy(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def retrieve(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+    )
 class UserViewSet_skills(viewsets.ModelViewSet):
     queryset = Skills.objects.all()
     serializer_class = SkillSerializer
  
-    # def create(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def create(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().create(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
-    # def put(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def delete(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def retrieve(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
-    # def destroy(self, request, *args, **kwargs):
-    #     if request.user.is_staff:  # Verifica si el usuario no es un administrador
-    #         return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
-    #     else:
-    #         return Response(
-    #             {"mensaje": "No tienes permiso para realizar esta acción"},
-    #             status=status.HTTP_403_FORBIDDEN
-    #         )
+    def put(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().put(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def delete(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().delete(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def retrieve(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().retrieve(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+    def destroy(self, request, *args, **kwargs):
+        if request.user.is_staff:  # Verifica si el usuario no es un administrador
+            return super().destroy(request, *args, **kwargs)  # Hereda el comportamiento original
+        else:
+            return Response(
+                {"mensaje": "No tienes permiso para realizar esta acción"},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
 class UserViewSet_contacto(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication]
