@@ -20,4 +20,4 @@ class ContactoSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Contacto
         fields = "__all__"
-        
+

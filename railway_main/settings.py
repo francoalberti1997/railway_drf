@@ -57,14 +57,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'railway_main.urls'
 
-direc = os.path.join(BASE_DIR) +  '/staticfiles/template/'
-
-direc = direc.replace("/", "\\")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [direc],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,10 +136,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-REST_FRAMEWORK = {
+    # REST_FRAMEWORK = {
 
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.TokenAuthentication',
-    ],
+    #     'DEFAULT_AUTHENTICATION_CLASSES':[
+    #         'rest_framework.authentication.TokenAuthentication',
+    #     ],
 
-}
+    # }

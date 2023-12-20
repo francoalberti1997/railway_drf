@@ -26,7 +26,7 @@ urlpatterns = [
     path('api/', include(router_skill.urls)),
     path('api/', include(router_contacto.urls)),
     path('login/', views.login_view, name='login_view'),
-    path('logout/', views.logout_view, name='logout_view'),
+    # path('logout/', views.logout_view, name='logout_view'),
 
 
     # Otras URL o inclusiones aquí si es necesario
